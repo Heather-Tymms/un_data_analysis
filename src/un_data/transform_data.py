@@ -8,7 +8,7 @@ def round_up(n, decimals=0):
 
 
 def find_max_value(dfs: dict[str, pd.DataFrame]) -> int:
-    """Find macimum value for a group of dataframes."""
+    """Find maximum value for a group of dataframes."""
 
     value_maximums = [df["value"].max() for df in dfs.values()]
     max_value = max(value_maximums)
@@ -19,7 +19,7 @@ def filter_region_and_series(
     df: pd.DataFrame, region: str, series: str
 ) -> pd.DataFrame:
     """Filter df with region and series."""
-    
+
     df = df.loc[
         (df["region_name"] == region)  # filter region name
         & (df["series"] == series)  # filter series column
