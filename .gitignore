@@ -1,3 +1,12 @@
+# input files
+input/*
+input/
+
+# sensitive info
+*/config.py
+.env
+.vscode/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
