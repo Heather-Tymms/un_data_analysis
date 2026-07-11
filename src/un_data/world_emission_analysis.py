@@ -4,6 +4,7 @@
 
 The UN publishes a lot of data for around the world.
 """
+
 # %%
 import pandas as pd
 import matplotlib.pyplot as plt
