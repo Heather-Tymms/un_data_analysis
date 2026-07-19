@@ -18,7 +18,8 @@ def init_raw_csv(input_folder_structure: str, input_filename: str):
 
     # get input filepath
     filepath = generate_input_filepath(
-        input_folder_structure=input_folder_structure, input_filename=input_filename
+        input_folder_structure=input_folder_structure,
+        input_filename=input_filename,
     )
 
     # read csv with filename associated with variable
@@ -55,21 +56,31 @@ def clean_emission_dataset(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def clean_population_dataset(df: pd.DataFrame) -> pd.DataFrame:
+    """Clean population growth dataset."""
+    # TODO: Find what columns need to be cleaned for pop growth dataset
+
+    return df
+
+
 def get_raw_dataset(
     input_folder_structure: str,
     input_filename: str,
-    type_of_data: Literal["gdp", "emissions"],
+    type_of_data: Literal["gdp", "emissions", "population_growth"],
 ) -> pd.DataFrame:
     """Initialise and clean dataset."""
 
     df = init_raw_csv(
-        input_folder_structure=input_folder_structure, input_filename=input_filename
+        input_folder_structure=input_folder_structure,
+        input_filename=input_filename,
     )
 
     # clean df with correct columns
     if type_of_data == "gdp":
         df = clean_gdp_dataset(df)
-    elif type_of_data == "Emission":
+    elif type_of_data == "emissions":
         df = clean_emission_dataset(df)
+    elif type_of_data == "population_growth":
+        df = clean_population_dataset(df)
 
     return df
